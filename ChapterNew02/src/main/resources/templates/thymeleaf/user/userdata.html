@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<style>
+			h4{
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>userdata.html</h3>
+		<b>전달받은 데이터</b>
+		<h4 th:text = "${username}">이름</h4>
+		<h4 th:text = "'안녕하세요 '+${username}+'님'">값 전달</h4>
+		<h4 th:text = "'이름: ' + ${username}"></h4>
+		<h4 th:text = "'업적: ' + ${good}">어마무시 홍길동!!!!</h4>
+	</body>
+</html>
