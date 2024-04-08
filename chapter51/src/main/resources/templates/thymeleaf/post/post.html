@@ -1,0 +1,14 @@
+<html xmlns="http://www.thymeleaf.org">
+	<head>
+			body{
+				background-color:greenyellow  ;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>thymeleaf>post/post.html</h1>
+		<h2>post(방식)form에서 입력받은 값 출력화면</h2>
+		<h2 th:text ="'name:'+${membername}"></h2>
+		<h2 th:text ="'id:'+${memberid}"></h2>
+	</body>
+</html>

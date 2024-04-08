@@ -1,0 +1,21 @@
+<html xmlns="http://www.thymeleaf.org">
+	<head>
+		<style>
+			body{
+				background-color:rgb(0, 128, 128) ;
+				color:white;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>thymeleaf>params.html</h1>
+		<h2>입력받은 여러개 값 출력화면</h2>
+		<h1>http://localhost:8066/params?_____________</h1>
+		http://localhost:8066/params?
+		uid=okace&uname=gogildong&uemail=aaa@naver.com&uhp=01033344444<br>
+		<h2 th:text ="'id:'+${uid}"></h2>
+		<h2 th:text ="'name:'+${uname}"></h2>
+		<h2 th:text ="'email:'+${uemail}"></h2>
+		<h2 th:text ="'hp:'+${uhp}"></h2>
+	</body>
+</html>
