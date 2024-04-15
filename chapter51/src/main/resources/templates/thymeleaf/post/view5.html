@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<style>
+			h1{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 th:text="${heading}">전달된 값</h1>
+		<p>친구 정보</p>
+		<table cellspacing="0" border="1">
+			<tr>
+				<td>num:</td>
+				<td th:text="${friendDTO.getNum()}"></td>
+			</tr>
+			<tr>
+				<td>name:</td>
+				<td th:text="${friendDTO.getName()}"></td>
+			</tr>
+			<tr>
+				<td>mobile:</td>
+				<td th:text="${friendDTO.getMobile()}"></td>
+			</tr>
+			<tr>
+				<td>charcter:</td>
+				<td th:text="${friendDTO.getCharcter()}"></td>
+			</tr>
+		</table>
+	</body>
+</html>

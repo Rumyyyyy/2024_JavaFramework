@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<style>
+			td, th{
+				border: 1px solid brown;
+				text-align: center;
+				padding: 10px;
+			}
+			tbody tr:nth-child(even){
+				background-color: green;
+				color: #fff;
+			}
+			thead th:nth-child(odd){
+				background-color: purple;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Thymeleaf Board Table</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Number</th>
+					<th>Title</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:object="${boardDTO}">
+					<td th:text="*{num}"></td>
+					<td th:text="*{btitle}"></td>
+					<td th:text="*{bname}"></td>
+				</tr>
+				<tr th:each="b : ${ bList }">
+					<td th:text="*{b.num}">1</td>
+					<td th:text="*{b.btitle}">하늘이 흐림</td>
+					<td th:text="*{b.bname}">이순신</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

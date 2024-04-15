@@ -1,0 +1,22 @@
+<html xmlns="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<style>
+			h1{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>친구정보입력</h1>
+		<form action="#" th:action="@{/view5}"
+		th:object="${friendDTO}" method="post" target="_blank">
+			num: <input type="text" th:field="*{num}"><br>
+			name: <input type="text" th:field="*{name}"><br>
+			mobile: <input type="text" th:field="*{mobile}"><br>
+			charcter: <input type="text" th:field="*{charcter}"><br>
+			<input type="submit" value="submit">
+			<input type="reset" value="reset">
+		</form>
+	</body>
+</html>
