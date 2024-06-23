@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function isLoggedIn() {
     // 로그인 상태를 확인하는 로직을 구현
-    // 예시로 로컬 스토리지 사용
     return localStorage.getItem('loggedIn') === 'true';
 }
 
