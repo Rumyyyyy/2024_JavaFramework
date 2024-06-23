@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Post</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="/posts">Posts</a></li>
+                <li><a href="/posts/new">New Post</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1 th:text="${post.title}">Post Title</h1>
+            <p>Posted by <span th:text="${post.username}">Username</span> (<span th:text="${post.email}">Email</span>) on <span th:text="${post.createdAt}">Created At</span></p>
+            <p th:text="${post.content}">Content</p>
+            <a th:href="@{/posts/edit/{id}(id=${post.id})}" class="btn btn-edit">Edit</a>
+            <a th:href="@{/posts/delete/{id}(id=${post.id})}" class="btn btn-delete">Delete</a>
+        </div>
+    </div>
+</body>
+</html>

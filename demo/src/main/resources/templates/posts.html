@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/posts">Posts</a></li>
+                <li><a href="/posts/new">New Post</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>All Posts</h1>
+            <ul class="post-list">
+                <li th:each="post : ${posts}">
+                    <div class="post-item">
+                        <a th:href="@{/posts/{id}(id=${post.id})}" class="post-title" th:text="${post.title}">Post Title</a>
+                        <div class="post-meta">
+                            <span th:text="${post.username}">Username</span> |
+                            <span th:text="${post.email}">Email</span> |
+                            <span th:text="${post.createdAt}">Created At</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .separator {
+            margin: 2rem 0;
+            border-top: 1px solid #ccc;
+        }
+        .comment-section {
+            margin-top: 2rem;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 0.5rem;
+        }
+        .comment-form input {
+            width: calc(50% - 0.5rem);
+            margin-bottom: 0.5rem;
+        }
+        .comment-form .input-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .comment-form button {
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/posts">Posts</a></li>
+                <li><a href="/posts/new">New Post</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1 th:text="${post.title}">Post Title</h1>
+            <p><strong>Username:</strong> <span th:text="${post.username}">Username</span></p>
+            <p><strong>Email:</strong> <span th:text="${post.email}">Email</span></p>
+            <p><strong>Created At:</strong> <span th:text="${post.createdAt}">Created At</span></p>
+            <p th:text="${post.content}">Post Content</p>
+            <div class="button-group">
+                <form th:action="@{/posts/delete/{id}(id=${post.id})}" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <a th:href="@{/posts/edit/{id}(id=${post.id})}" class="btn btn-primary">Edit</a>
+            </div>
+
+            <div class="separator"></div>
+
+            <div class="comment-section">
+                <h2>Comments</h2>
+                <ul>
+                    <li th:each="comment : ${comments}" th:text="${comment.content}">Comment content</li>
+                </ul>
+
+                <h3>Write a Comment</h3>
+                <form th:action="@{/posts/{postId}/comments(postId=${post.id})}" method="post" class="comment-form">
+                    <textarea name="content" placeholder="Write your comment here"></textarea>
+                    <div class="input-group">
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
